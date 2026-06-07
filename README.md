@@ -1,102 +1,107 @@
-# Frontend Mentor - Todo app solution
+# Frontend Mentor - Todo App Solution
 
-This is a solution to the [Todo app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
-
-## Table of contents
-
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [AI Collaboration](#ai-collaboration)
-- [Author](#author)
+This is my solution to the [Frontend Mentor Todo App Challenge](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW). The project focuses on building a fully interactive todo application with filtering, theme switching, local storage persistence, and drag-and-drop functionality.
 
 ## Overview
 
-### The challenge
+### Features
 
-Users should be able to:
+Users can:
 
-- View the optimal layout for the app depending on their device's screen size
-- See hover states for all interactive elements on the page
-- Add new todos to the list
-- Mark todos as complete
-- Delete todos from the list
-- Filter by all/active/complete todos
-- Clear all completed todos
-- Toggle light and dark mode
-- **Bonus**: Drag and drop to reorder items on the list
+- Add new tasks
+- Mark tasks as completed
+- Delete tasks
+- Filter tasks by:
+  - All
+  - Active
+  - Completed
+- Clear all completed tasks
+- Toggle between Light and Dark themes
+- Reorder tasks using Drag & Drop
+- Persist data using Local Storage
+- Navigate key interactions using the keyboard
 
-### Screenshot
+---
 
-![](./screenshot.jpg)
+## Screenshots
 
-### Links
+| Desktop Light | Desktop Dark |
+|---------------|--------------|
+| ![](./screenshots/desktop-light.png) | ![](./screenshots/desktop-dark.png) |
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://mohamad-aboeisa.github.io/Todo-App/)
+| Mobile Light | Mobile Dark |
+|--------------|-------------|
+| ![](./screenshots/mobile-light.png) | ![](./screenshots/mobile-dark.png) |
 
-## My process
+---
 
-### Built with
+## Links
 
-- Semantic HTML5 markup
-- CSS custom properties
+- **Live Site:** https://mohamad-aboeisa.github.io/Todo-App/
+- **Frontend Mentor Solution:** [Solution](https://www.frontendmentor.io/solutions/todo-app-using-html5-css3-scss-javascript-es6-modules-iw1wyERJzv) 
+- **Repository:** https://github.com/mohamad-aboeisa/Todo-App
+
+---
+
+## Built With
+
+- HTML5
+- CSS3
+- SCSS
+- JavaScript (ES6 Modules)
+- Local Storage API
+- Vite
+- CSS Custom Properties
 - Flexbox
 - CSS Grid
-- Desktop-first workflow
-- Javascript
-- [Styled Components](https://styled-components.com/) - For styles
+- Drag and Drop API
 
-### What I learned
+---
 
-I learned how to handle darktheme using css variables, handling filters using radio button and labels and handling drag and drop to reorder was a challenge
+## Project Highlights
 
-```html
-<div class="wrapper__filters">
-  <p class="btn"><span class="itemsleft"></span></p>
-  <div class="wrapper__filters-center">
-    <input type="radio" id="all" name="filter" value="all" class="btn btn--bold" checked />
-    <label class="btn btn--bold all" for="all" tabindex="0">All</label>
+### Theme Switching
 
-    <input type="radio" id="active" name="filter" value="active" class="btn btn--bold" />
-    <label class="btn btn--bold active" for="active" tabindex="0">Active</label>
+Implemented a Light/Dark theme system using CSS Custom Properties and JavaScript. User preferences are saved in Local Storage and restored on page reload.
 
-    <input type="radio" id="completed" name="filter" value="completed" class="btn btn--bold" />
-    <label class="btn btn--bold completed" for="completed" tabindex="0">Completed</label>
-  </div>
-  <button class="btn btn--clear">Clear Completed</button>
-</div>
-```
+### Task Filtering
 
-```css
-.container.darkTheme {
-  --primary-text-color: var(--Purple300);
-  --secondary-text-color: var(--Purple700);
-  --primary-bg-color: var(--Navy950);
-  --secondry-bg-color: var(--Navy900);
-  --bg-image: var(--bg-desktop-dark);
-  --border-color: var(--Purple800);
-  --checked-text-color: var(--Purple700);
-  .Header__themelogo {
-    &-light {
-      display: none;
-    }
-    &-dark {
-      display: block;
-    }
-  }
-  & .btn:hover {
-    color: var(--Purple100);
-  }
-  & .btn:focus {
-    color: var(--Purple100);
-  }
-}
-```
+Built task filtering functionality using radio buttons and labels while maintaining keyboard accessibility support.
+
+### Local Storage Persistence
+
+All tasks, task states, theme preferences, and task order are stored locally, ensuring data remains available between sessions.
+
+### Drag & Drop Reordering
+
+Implemented drag-and-drop functionality allowing users to reorder tasks. The new order is saved and restored automatically.
+
+### Accessibility
+
+Special attention was given to keyboard navigation and interactive elements to improve usability and accessibility.
+
+---
+
+## What I Learned
+
+This project helped me gain practical experience with:
+
+- Managing application state using JavaScript
+- Working with Local Storage
+- Creating reusable utility functions
+- Implementing filtering logic
+- Handling drag-and-drop interactions
+- Improving keyboard accessibility
+- Organizing a project using ES Modules
+- Working with Vite for development and deployment
+
+One of the most challenging and rewarding parts of the project was implementing the drag-and-drop functionality while maintaining correct task ordering and data persistence.
+
+---
+
+## Code Highlights
+
+### Drag and Drop Reordering
 
 ```js
 let draggedId = null;
@@ -104,6 +109,7 @@ let draggedId = null;
 export const handleDragStart = (e) => {
   draggedId = e.currentTarget.dataset.id;
 };
+
 export const handleDragOver = (e) => {
   e.preventDefault();
 };
@@ -117,9 +123,13 @@ export const handleDrop = (e) => {
 
   const tasks = fetchData("tasks");
 
-  const draggedIndex = tasks.findIndex((task) => task.id === draggedId);
+  const draggedIndex = tasks.findIndex(
+    (task) => task.id === draggedId
+  );
 
-  const targetIndex = tasks.findIndex((task) => task.id === targetId);
+  const targetIndex = tasks.findIndex(
+    (task) => task.id === targetId
+  );
 
   const [draggedTask] = tasks.splice(draggedIndex, 1);
 
@@ -131,12 +141,37 @@ export const handleDrop = (e) => {
 };
 ```
 
-### AI Collaboration
+### Theme Management
 
-I used ChatGPT to fiqure out how to handle fillters and drag and drop functions it helped alot to fiqure out the login behind these functions
+```css
+.container.darkTheme {
+  --primary-text-color: var(--Purple300);
+  --secondary-text-color: var(--Purple700);
+  --primary-bg-color: var(--Navy950);
+  --secondry-bg-color: var(--Navy900);
+  --bg-image: var(--bg-desktop-dark);
+  --border-color: var(--Purple800);
+}
+```
+
+---
+
+## AI Collaboration
+
+During development, I used ChatGPT as a learning and debugging tool. It helped me better understand the logic behind:
+
+- Task filtering
+- Drag-and-drop implementation
+- State management
+- Accessibility improvements
+- JavaScript best practices
+
+The goal was not simply to generate code, but to understand the underlying concepts and improve my problem-solving approach.
+
+---
 
 ## Author
 
-- GitHub - [mohamad-aboeisa](https://github.com/mohamad-aboeisa)
-- Frontend Mentor - [Mohamad Aboeisa](https://www.frontendmentor.io/profile/mohamad-aboeisa)
-- LinkedIn - [Mohamad Osama](www.linkedin.com/in/mohamad-osama-aboeisa)
+- GitHub: https://github.com/mohamad-aboeisa
+- LinkedIn: https://www.linkedin.com/in/mohamad-osama-aboeisa/
+- Frontend Mentor: https://www.frontendmentor.io/profile/mohamad-aboeisa
