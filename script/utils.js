@@ -20,11 +20,11 @@ export const renderTaskList = () => {
   tasks.forEach((task) => {
     taskList += `<li class="wrapper__ul-elem ${task.isCompleted ? " checked" : ""}" data-id="${task.id}" draggable="true" >
               <button class="btn wrapper__ul-elem-check">
-                <img src="images/icon-check.svg" alt="task checked" />
+                <img src="./images/icon-check.svg" alt="task checked" />
               </button>
               <p>${task.value}</p>
               <button class="btn wrapper__ul-elem-delete">
-                <img src="images/icon-cross.svg" alt="delete task" />
+                <img src="./images/icon-cross.svg" alt="delete task" />
               </button>
             </li>`;
   });
