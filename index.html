@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+    <link rel="stylesheet" href="./styles/styles.scss" />
+    <title>Frontend Mentor | Todo app</title>
+  </head>
+  <body>
+    <div class="container">
+      <main class="App">
+        <header class="Header">
+          <h1 class="Header__title">TODO</h1>
+          <button class="btn Header__themelogo">
+            <img class="Header__themelogo-light" src="images/icon-moon.svg" alt="light themelogo" />
+            <img class="Header__themelogo-dark" src="images/icon-sun.svg" alt="dark themelogo" />
+          </button>
+        </header>
+        <div class="wrapper">
+          <form class="wrapper__form">
+            <button type="submit" class="btn wrapper__form-circle">+</button>
+            <label for="newTask-input" class="wrapper__form-label"></label>
+            <input type="text" id="newTask-input" class="wrapper__form-input" placeholder="Create a new todo..." />
+          </form>
+          <ul class="wrapper__ul"></ul>
+          <div class="wrapper__filters">
+            <p class="btn"><span class="itemsleft"></span></p>
+            <div class="wrapper__filters-center">
+              <input type="radio" id="all" name="filter" value="all" class="btn btn--bold" checked />
+              <label class="btn btn--bold all" for="all" tabindex="0">All</label>
+
+              <input type="radio" id="active" name="filter" value="active" class="btn btn--bold" />
+              <label class="btn btn--bold active" for="active" tabindex="0">Active</label>
+
+              <input type="radio" id="completed" name="filter" value="completed" class="btn btn--bold" />
+              <label class="btn btn--bold completed" for="completed" tabindex="0">Completed</label>
+            </div>
+            <button class="btn btn--clear">Clear Completed</button>
+          </div>
+          <p class="wrapper__footer">Drag and drop to redorder list</p>
+        </div>
+      </main>
+    </div>
+    <script src="script/script.js" type="module"></script>
+  </body>
+</html>

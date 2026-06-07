@@ -1,0 +1,16 @@
+export const themeToggleElement = document.querySelector(".Header__themelogo");
+export const containerElement = document.querySelector(".container");
+export const inputElement = document.querySelector(".wrapper__form-input");
+export const taskListElement = document.querySelector(".wrapper__ul");
+export const inputElementButton = document.querySelector(".wrapper__form-circle");
+export const tasksLeftElement = document.querySelector(".itemsleft");
+export const allRadio = document.querySelector("#all");
+export const activeRadio = document.querySelector("#active");
+export const completedRadio = document.querySelector("#completed");
+export const allBtn = document.querySelector(".all");
+export const activeBtn = document.querySelector(".active");
+export const completedBtn = document.querySelector(".completed");
+export const clearCompletedBtn = document.querySelector(".btn--clear");
+export const getTaskElements = () => document.querySelectorAll(".wrapper__ul-elem");
+export const getDeleteELements = () => document.querySelectorAll(".wrapper__ul-elem-delete");
+export const getCheckBoxElements = () => document.querySelectorAll(".wrapper__ul-elem-check");

@@ -1,0 +1,7 @@
+@mixin circle {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: transparent;
+}
