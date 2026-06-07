@@ -100,7 +100,7 @@ export const initDataOnStartup = () => {
 // renderEmptyState
 const renderEmptyState = () => {
   taskListElement.innerHTML = ` <li class="wrapper__ul-EmptyList">
-        <img src="images/icon-empty.svg" alt="list is empty" class="EmptyList__img">
+        <img src="/images/icon-empty.svg" alt="list is empty" class="EmptyList__img">
       </li>`;
 };
 
